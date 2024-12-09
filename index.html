@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Process</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div class="content">
+
+        <div class="date">
+            Posted on December 5, 2024
+        </div>
+        <video autoplay width="100%" height="auto">
+            <source src="vid/landing-page.mp4" type="video/mp4">
+        </video>
+
+        <h1>Design Process of "MoMA 100"</h1>
+
+        <p>Hi :) you're seeing the unfinished unpublished draft rn</p>
+
+        <div class="process-image">
+            <img src="img/cover.png" alt="Cover pic">
+        </div>
+
+        <h2>The idea</h2>
+        <p>Through various workshops and assignments in this class, I knew I was interested in 
+            visualizing topics related to one or a combination of: architecture, fine arts, 
+            contemporary art, curating, exhibitions, construction of posthumous identity
+             in monographics, and network analysis in curating history.</p>
+        <p>I spent ~a week researching and exploring these fields, during which 
+            I created ~8 concept and mind maps to visualize their interconnections 
+            and identify existing gaps in data visualization for these domains. 
+            Below are two examples:</p>
+
+        <div class="image-grid">
+            <div class="grid-item">
+                <img src="img/research.png" alt="Process image 1">
+            </div>
+            <div class="grid-item">
+                <img src="img/research-arch.png" alt="Process image 2">
+            </div>
+            <div class="grid-item">
+                <img src="img/research-arch.png" alt="Process image 3">
+            </div>
+            <div class="grid-item">
+                <img src="img/research.png" alt="Process image 4">
+            </div>
+        </div>
+
+        <p>In parallel to topical research, I looked for publicly available datasets, 
+            and quickly decided to steer away from highly theoretical/qualitative topics 
+            (e.g. postmodern curatorial theory) because their related datasets either 
+            1) require substantial feature engineering to be suitable for narrative storytelling or 
+            2) large-scale methods for unstructured data gathering (eg. unstructured web scraping).</p>
+
+        <p>When I found <a href="https://github.com/MuseumofModernArt/collection">MoMA's data collection</a>
+            - comprising 3 extensive databases focused on artists, 
+            artworks, and exhibitions - I felt this provided a perfect balance between structure 
+            (well-organized tabular data, ideal for querying and analysis) and flexibility 
+            (providing ample opportunities to craft compelling narratives).</p>
+        
+        <p>An initial reaction was to explore exhibitions, but this was dropped for 2 drawbacks:</p>
+        <ul>
+            <li> The data is only available up till 1989.
+            <li> The dataset consist largely of highly low-level technical details - on top of that, fragmented with large gaps in timeline - which did not provide a strong basis for data-driven narrative storytelling.
+        </ul>
+        
+        <p>
+            After speaking with Prof. Tuzcu about different ideas and representations/
+            ways of communication, and with curator and critic Steven Madoff in November 
+            about arguments in contemporary curating, I knew I wanted to specifically 
+            explore and examine the discrepancy between the mission statement an art 
+            institution claims to present vs. the actual message put forward through 
+            their selection and presentation of works, artists, collections, narratives, etc.
+        </p>
+
+        <p>
+            For MoMA, this specifies down to to:
+        </p>
+
+        <h2>The data</h2>
+
+        <h2>Designing the Narrative</h2>
+
+        <h2>Initial Visual Explorations</h2>
+        <div class="image-grid">
+            <div class="grid-item">
+                <img src="img/procreate-map.jpg" alt="Process image 1">
+            </div>
+            <div class="grid-item">
+                <img src="img/procreate-map2.jpg" alt="Process image 2">
+            </div>
+            <div class="grid-item">
+                <img src="img/procreate-map3.jpg" alt="Process image 3">
+            </div>
+            <div class="grid-item">
+                <img src="img/procreate-exp.jpg" alt="Process image 4">
+            </div>
+        </div>
+
+        <div class="social-share">
+            <a href="#">github</a>
+        </div>
+    </div>
+
+    <script>
+        const gridItems = document.querySelectorAll('.grid-item');
+        const grid = document.querySelector('.image-grid');
+
+        gridItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (item.classList.contains('expanded')) {
+                    item.classList.remove('expanded');
+                    grid.classList.remove('has-expanded');
+                    return;
+                }
+
+                const expandedItem = document.querySelector('.grid-item.expanded');
+                if (expandedItem) {
+                    expandedItem.classList.remove('expanded');
+                }
+
+                item.classList.add('expanded');
+                grid.classList.add('has-expanded');
+            });
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const expandedItem = document.querySelector('.grid-item.expanded');
+                if (expandedItem) {
+                    expandedItem.classList.remove('expanded');
+                    grid.classList.remove('has-expanded');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
